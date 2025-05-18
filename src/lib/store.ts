@@ -8,3 +8,7 @@ export let store = configureStore({
         posts:postsReducer
     }
 })
+
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>

@@ -3,14 +3,13 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import { useDispatch } from 'react-redux';
 
 
-
 import { useParams } from 'next/navigation';
-
+import { AppDispatch } from '../../../../src/lib/store'
 
 
 export default function AddPost() {
   const { postId } = useParams();
-  let dispatch = useDispatch<any>();
+  let dispatch = useDispatch<AppDispatch>();
 
   function handelSubmit(e: any) {
     e.preventDefault();

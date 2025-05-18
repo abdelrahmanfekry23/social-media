@@ -2,6 +2,10 @@ import AddPost from '@/app/_Component/addpost/page';
 import { posts } from './../../node_modules/@reduxjs/toolkit/src/query/tests/mocks/handlers';
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../src/lib/store'; // عدل المسار حسب مشروعك
+
+const dispatch = useDispatch<AppDispatch>();
 
 
 let headers = {
@@ -27,7 +31,7 @@ export let getAllPosts = createAsyncThunk('postsSlice/getAllPosts' ,async ()=>{
 })
 
 
-  export let addPost = createAsyncThunk('postsSlice/addPost' ,async (formData)=>{
+  export let addPost = createAsyncThunk('postsSlice/addPost' ,async (formData:FormData)=>{
   let response = await  fetch(`https://linked-posts.routemisr.com/posts`,{
     body:formData,
     method:"POST",
@@ -54,7 +58,7 @@ export  let initialState ={allPosts:[] , userPosts:[], isLoading:false , isError
         state.isLoading = true
     }),
      builder.addCase(getAllPosts.rejected , (state , action)=>{
-        state.isError = action.payload
+   
     }),
      builder.addCase(addPost.fulfilled , (state , action)=>{
         state.allPosts = action.payload.posts
