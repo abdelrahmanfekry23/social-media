@@ -24,7 +24,7 @@ export default function Profile() {
     dispatch(getAllPosts())
   }, [dispatch])
 
-  const { allPosts, isLoading, isError } = useSelector((state: state) => state.posts)
+  const { allPosts, isLoading, isError } = useSelector((state: state) => state.Posts)
 
   if (isLoading) return <HourglassBottomIcon/>
   if (isError) return <p>Error loading posts.</p>
