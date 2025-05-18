@@ -1,5 +1,4 @@
 import AddPost from '@/app/_Component/addpost/page';
-import { posts } from './../../node_modules/@reduxjs/toolkit/src/query/tests/mocks/handlers';
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { useDispatch } from 'react-redux';
